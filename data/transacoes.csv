@@ -9,3 +9,19 @@ data,descricao,categoria,valor,tipo
 2025-10-15,Conta de Luz,moradia,180.00,saida
 2025-10-20,Academia,saude,99.00,saida
 2025-10-25,Combustível,transporte,250.00,saida
+2025-10-28,Freelance,receita,800.00,entrada
+2025-10-29,Cinema,lazer,70.00,saida
+2025-10-30,Conta de Água,moradia,95.00,saida
+2025-11-01,Salário,receita,5000.00,entrada
+2025-11-02,Aluguel,moradia,1200.00,saida
+2025-11-03,Supermercado,alimentacao,520.00,saida
+2025-11-05,Spotify,lazer,34.90,saida
+2025-11-07,Farmácia,saude,120.00,saida
+2025-11-10,Restaurante,alimentacao,150.00,saida
+2025-11-12,Ônibus,transporte,30.00,saida
+2025-11-15,Conta de Internet,moradia,120.00,saida
+2025-11-18,Investimento,receita,300.00,entrada
+2025-11-20,Academia,saude,99.00,saida
+2025-11-22,Combustível,transporte,270.00,saida
+2025-11-25,Show,lazer,200.00,saida
+2025-11-28,Freelance,receita,950.00,entrada
