@@ -1,149 +1,204 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+<div align="center">
 
-## Contexto
-
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
-
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
-
----
-
-## O Que Você Deve Entregar
-
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
-
----
-
-### 2. Base de Conhecimento
-
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
-
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
-
-## Estrutura do Repositório
+<br/>
 
 ```
-📁 lab-agente-financeiro/
+██╗██████╗ ██╗███████╗
+██║██╔══██╗██║██╔════╝
+██║██████╔╝██║███████╗
+██║██╔══██╗██║╚════██║
+██║██║  ██║██║███████║
+╚═╝╚═╝  ╚═╝╚═╝╚══════╝
+```
+
+# Íris — Consultora Financeira com IA
+
+> *"Clareza financeira para cada decisão, em cada momento."*
+
+[![DIO Lab](https://img.shields.io/badge/DIO-Lab%20Bia%20do%20Futuro-8A2BE2?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0tMiAxNWwtNS01IDEuNDEtMS40MUwxMCAxNC4xN2w3LjU5LTcuNTlMMTkgOGwtOSA5eiIvPjwvc3ZnPg==)](https://github.com/digitalinnovationone/dio-lab-bia-do-futuro)
+[![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-22c55e?style=flat-square)]()
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)]()
+[![IA Generativa](https://img.shields.io/badge/IA-Generativa-f59e0b?style=flat-square)]()
+[![Licença](https://img.shields.io/badge/Licença-MIT-64748b?style=flat-square)]()
+
+</div>
+
+---
+
+## 🌟 Sobre o Projeto
+
+**Íris** é um agente de inteligência artificial desenvolvido como consultora financeira pessoal. Seu propósito é democratizar o acesso à orientação financeira de qualidade — oferecendo análises claras, recomendações personalizadas e respostas confiáveis, sem jargões e sem alucinações.
+
+Este repositório é o resultado do lab **"Bia do Futuro"** da [Digital Innovation One (DIO)](https://www.dio.me), onde o desafio é projetar, documentar e implementar um agente financeiro inteligente do zero.
+
+---
+
+## ✨ Capacidades da Íris
+
+| Capacidade | Descrição |
+|---|---|
+| 📊 **Análise de Perfil** | Identifica o perfil de investidor (conservador, moderado, arrojado) |
+| 💡 **Consultoria de Investimentos** | Recomenda produtos financeiros alinhados ao perfil e aos objetivos |
+| 🎯 **Planejamento de Metas** | Auxilia na definição e acompanhamento de metas financeiras |
+| ⚠️ **Alertas Inteligentes** | Detecta padrões de gastos e emite alertas preventivos |
+| 🛡️ **Respostas Confiáveis** | Arquitetura anti-alucinação com base de conhecimento curada |
+
+---
+
+## 🗂️ Estrutura do Projeto
+
+```
+dio-lab-bia-do-futuro/
 │
 ├── 📄 README.md
 │
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+├── 📁 data/                        # Base de conhecimento e dados mockados
+│   ├── historico_atendimento.csv   # Histórico de atendimentos
+│   ├── perfil_investidor.json      # Perfis de clientes
+│   ├── produtos_financeiros.json   # Catálogo de produtos disponíveis
+│   └── transacoes.csv              # Histórico de transações
 │
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
+├── 📁 docs/                        # Documentação completa do agente
+│   ├── 01-documentacao-agente.md   # Caso de uso e arquitetura
+│   ├── 02-base-conhecimento.md     # Estratégia de dados e RAG
+│   ├── 03-prompts.md               # Engenharia de prompts
+│   ├── 04-metricas.md              # Avaliação e métricas de desempenho
+│   └── 05-pitch.md                 # Roteiro do pitch
 │
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
+├── 📁 src/                         # Código-fonte da aplicação
+│   └── app.py                      # Ponto de entrada da aplicação
 │
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+└── 📁 assets/                      # Imagens e diagramas
 ```
 
 ---
 
-## Dicas Finais
+## 🏗️ Arquitetura
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+```
+┌─────────────────────────────────────────────────────┐
+│                    Usuário / Cliente                  │
+└──────────────────────────┬──────────────────────────┘
+                           │ Input (texto / voz)
+                           ▼
+┌─────────────────────────────────────────────────────┐
+│                    Interface (Chat)                   │
+└──────────────────────────┬──────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────┐
+│                   Íris — Agente IA                    │
+│                                                       │
+│   ┌─────────────┐       ┌───────────────────────┐    │
+│   │  Engenharia │──────▶│    LLM (Modelo Base)  │    │
+│   │  de Prompts │       └───────────┬───────────┘    │
+│   └─────────────┘                   │                 │
+│                                     ▼                 │
+│   ┌─────────────────────────────────────────────┐    │
+│   │          Base de Conhecimento (RAG)          │    │
+│   │  perfil_investidor · produtos · transações   │    │
+│   └─────────────────────────────────────────────┘    │
+└──────────────────────────┬──────────────────────────┘
+                           │ Resposta validada
+                           ▼
+                    ✅ Usuário recebe
+               consultoria confiável
+```
+
+---
+
+## 📚 Documentação do Agente
+
+A pasta `docs/` contém a documentação completa organizada em cinco etapas:
+
+### `01 — Documentação do Agente`
+Define o **caso de uso** central da Íris: fornecer consultoria financeira acessível e personalizada. Detalha a **persona** (tom consultivo, empático e objetivo), o público-alvo e o fluxo de interação do agente.
+
+### `02 — Base de Conhecimento`
+Descreve a **estratégia de dados**: quais fontes alimentam o agente, como os dados são estruturados (CSV e JSON) e como a abordagem RAG *(Retrieval-Augmented Generation)* garante respostas fundamentadas e evita alucinações.
+
+### `03 — Engenharia de Prompts`
+Documenta os **system prompts**, exemplos de few-shot e as instruções de segurança que moldam o comportamento da Íris — incluindo o que ela deve e não deve responder.
+
+### `04 — Métricas de Avaliação`
+Define os critérios de qualidade: **precisão das respostas**, taxa de alucinação, satisfação do usuário (CSAT) e tempo médio de resolução — com metas e metodologia de medição.
+
+### `05 — Pitch`
+Roteiro para apresentação do projeto: problema, solução, diferenciais da Íris, demonstração ao vivo e próximos passos.
+
+---
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+
+- Python 3.11+
+- Chave de API de um LLM (OpenAI, Anthropic, etc.)
+
+### Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/finusz/dio-lab-bia-do-futuro.git
+cd dio-lab-bia-do-futuro
+
+# Crie e ative o ambiente virtual
+python -m venv .venv
+source .venv/bin/activate  # Linux/macOS
+.venv\Scripts\activate     # Windows
+
+# Instale as dependências
+pip install -r requirements.txt
+
+# Configure as variáveis de ambiente
+cp .env.example .env
+# Edite o .env com sua chave de API
+```
+
+### Execução
+
+```bash
+python src/app.py
+```
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Definição da persona e caso de uso
+- [x] Estruturação da base de conhecimento (dados mockados)
+- [x] Engenharia de prompts inicial
+- [x] Documentação das métricas
+- [ ] Implementação do pipeline RAG
+- [ ] Integração com LLM via API
+- [ ] Interface conversacional (Streamlit / Gradio)
+- [ ] Testes de qualidade e métricas
+- [ ] Deploy em produção
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Siga os passos:
+
+1. Faça um **fork** do projeto
+2. Crie sua branch: `git checkout -b feat/minha-melhoria`
+3. Commit suas mudanças: `git commit -m 'feat: adiciona nova funcionalidade'`
+4. Push para a branch: `git push origin feat/minha-melhoria`
+5. Abra um **Pull Request**
+
+---
+
+## 📄 Licença
+
+Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+
+---
+
+<div align="center">
+
+Desenvolvido com 💜 no **Lab Bia do Futuro** — [Digital Innovation One](https://www.dio.me)
+
+*"A Íris enxerga além dos números — ela enxerga o seu futuro."*
+
+</div>
