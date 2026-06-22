@@ -3,14 +3,16 @@ import streamlit as st
 import json, requests
 
 # ========== configuração ==========
-OLLAMA_URL = 'https://localhost:11434/api/generate'
+OLLAMA_URL = 'http://localhost:11434/api/generate'
 MODELO = 'gpt-oss' #ollama run gpt-oss
 
 # ========== carregar dados ==========
-transacoes = pd.read_csv('./data/transacoes.csv')
-historico = pd.read_csv('./data/historico_atendimento.csv')
-perfil = json.load('./data/perfil_investidor.json')
-produtos = json.load('./data/produtos_financeiros.json')
+transacoes = pd.read_csv(r'.\data\transacoes.csv')
+historico = pd.read_csv(r'.\data\historico_atendimento.csv')
+with open(r'.\data\perfil_investidor.json', 'r', encoding='utf-8') as f:
+    perfil = json.load(f)
+with open(r'.\data\produtos_financeiros.json', 'r', encoding='utf-8') as f:
+    produtos = json.load(f)
 
 
 # ========== montar contexto ==========
@@ -39,8 +41,7 @@ REGRAS:
 2. Nunca invente informações financeiras
 3. Se não souber algo, admita e ofereça alternativas de perguntas que você consegue ajudar
 4. Não sugerir investimentos
-5. Não carregue o usuário com muitas informações sobre sua conta logo de cara, apresente-se e sugira opções de perguntas que ele pode realizar
-6. Não responda perguntas além do escopo financeiro
+5. Nunca responda perguntas além do escopo financeiro
 
 CONTEXTO:
 Utilizar as bases de conhecimento
@@ -56,10 +57,10 @@ CONTEXTO CLIENTE:
 
 pergunta: {msg}'''
     r = requests.post(OLLAMA_URL, json={'model': MODELO, 'prompt': prompt, 'stream': False})
-    return r.json()['resonse']
+    return r.json()['response']
 
 # ========== interface ==========
-st.title('Iris, sua Consulturo Financeira')
+st.title('Iris, sua Consultura Financeira')
 
 if pergunta := st.chat_input('Sua dúvida sobre finanças...'):
     st.chat_message('user').write(pergunta)
