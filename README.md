@@ -162,20 +162,6 @@ python src/app.py
 
 ---
 
-## 🗺️ Roadmap
-
-- [x] Definição da persona e caso de uso
-- [x] Estruturação da base de conhecimento (dados mockados)
-- [x] Engenharia de prompts inicial
-- [x] Documentação das métricas
-- [ ] Implementação do pipeline RAG
-- [ ] Integração com LLM via API
-- [ ] Interface conversacional (Streamlit / Gradio)
-- [ ] Testes de qualidade e métricas
-- [ ] Deploy em produção
-
----
-
 ## 🤝 Contribuindo
 
 Contribuições são bem-vindas! Siga os passos:
@@ -193,11 +179,3 @@ Contribuições são bem-vindas! Siga os passos:
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 ---
-
-<div align="center">
-
-Desenvolvido com 💜 no **Lab Bia do Futuro** — [Digital Innovation One](https://www.dio.me)
-
-*"A Íris enxerga além dos números — ela enxerga o seu futuro."*
-
-</div>
